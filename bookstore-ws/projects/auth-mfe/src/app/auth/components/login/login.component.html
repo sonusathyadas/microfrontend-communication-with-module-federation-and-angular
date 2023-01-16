@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 mx-auto">
+            <h3>Sign In</h3>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                <div class="mb-3">
+                    <label for="username" class="form-label">User name</label>
+                    <input type="username" class="form-control " name="username" id="username" required minlength="8"
+                        [(ngModel)]="credential.username" #username="ngModel">
+                    <div *ngIf="username.touched && username.errors" class="alert alert-danger">
+                        <div *ngIf="username.errors!['required']">Username cannot be empty</div>
+                        <div *ngIf="username.errors!['minlength']">Username must contain minimum 8 characters</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" required minlength="8" [(ngModel)]="credential.password"
+                        #passwd="ngModel" id="password" name="password">
+                    <div *ngIf="passwd.touched && passwd.errors" class="alert alert-danger">
+                        <div *ngIf="passwd.errors!['required']">Password cannot be empty</div>
+                        <div *ngIf="passwd.errors!['minlength']">Password must contain minimum 8 characters</div>
+                    </div>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe" [(ngModel)]="credential.rememberMe"
+                    #rememberMe="ngModel" name="rememberMe"  />
+                    <label class="form-check-label" for="rememberMe"  id="rememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

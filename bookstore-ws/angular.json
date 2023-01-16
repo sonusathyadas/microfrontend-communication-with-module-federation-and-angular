@@ -1,0 +1,437 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"book-mfe": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:component": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "projects/book-mfe",
+			"sourceRoot": "projects/book-mfe/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/book-mfe",
+						"index": "projects/book-mfe/src/index.html",
+						"main": "projects/book-mfe/src/main.ts",
+						"polyfills": "projects/book-mfe/src/polyfills.ts",
+						"tsConfig": "projects/book-mfe/tsconfig.app.json",
+						"assets": [
+							"projects/book-mfe/src/favicon.ico",
+							"projects/book-mfe/src/assets"
+						],
+						"styles": [
+							"node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"projects/book-mfe/src/styles.css"
+						],
+						"scripts": [
+							"node_modules/jquery/dist/jquery.min.js",
+							"node_modules/bootstrap/dist/js/bootstrap.min.js"
+						],
+						"extraWebpackConfig": "projects/book-mfe/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/book-mfe/src/environments/environment.ts",
+									"with": "projects/book-mfe/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/book-mfe/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "book-mfe:build:production",
+							"extraWebpackConfig": "projects/book-mfe/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "book-mfe:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4300,
+						"publicHost": "http://localhost:4300",
+						"extraWebpackConfig": "projects/book-mfe/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "book-mfe:build",
+						"extraWebpackConfig": "projects/book-mfe/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/book-mfe/src/test.ts",
+						"polyfills": "projects/book-mfe/src/polyfills.ts",
+						"tsConfig": "projects/book-mfe/tsconfig.spec.json",
+						"karmaConfig": "projects/book-mfe/karma.conf.js",
+						"assets": [
+							"projects/book-mfe/src/favicon.ico",
+							"projects/book-mfe/src/assets"
+						],
+						"styles": [
+							"projects/book-mfe/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"auth-mfe": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:component": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "projects/auth-mfe",
+			"sourceRoot": "projects/auth-mfe/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/auth-mfe",
+						"index": "projects/auth-mfe/src/index.html",
+						"main": "projects/auth-mfe/src/main.ts",
+						"polyfills": "projects/auth-mfe/src/polyfills.ts",
+						"tsConfig": "projects/auth-mfe/tsconfig.app.json",
+						"assets": [
+							"projects/auth-mfe/src/favicon.ico",
+							"projects/auth-mfe/src/assets"
+						],
+						"styles": [
+							"node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"projects/auth-mfe/src/styles.css"
+						],
+						"scripts": [
+							"node_modules/jquery/dist/jquery.min.js",
+							"node_modules/bootstrap/dist/js/bootstrap.min.js"
+						],
+						"extraWebpackConfig": "projects/auth-mfe/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/auth-mfe/src/environments/environment.ts",
+									"with": "projects/auth-mfe/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/auth-mfe/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "auth-mfe:build:production",
+							"extraWebpackConfig": "projects/auth-mfe/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "auth-mfe:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/auth-mfe/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "auth-mfe:build",
+						"extraWebpackConfig": "projects/auth-mfe/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/auth-mfe/src/test.ts",
+						"polyfills": "projects/auth-mfe/src/polyfills.ts",
+						"tsConfig": "projects/auth-mfe/tsconfig.spec.json",
+						"karmaConfig": "projects/auth-mfe/karma.conf.js",
+						"assets": [
+							"projects/auth-mfe/src/favicon.ico",
+							"projects/auth-mfe/src/assets"
+						],
+						"styles": [
+							"projects/auth-mfe/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+		},
+		"bookstore-shell": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:class": {
+					"skipTests": true
+				},
+				"@schematics/angular:component": {
+					"skipTests": true
+				},
+				"@schematics/angular:directive": {
+					"skipTests": true
+				},
+				"@schematics/angular:guard": {
+					"skipTests": true
+				},
+				"@schematics/angular:interceptor": {
+					"skipTests": true
+				},
+				"@schematics/angular:pipe": {
+					"skipTests": true
+				},
+				"@schematics/angular:resolver": {
+					"skipTests": true
+				},
+				"@schematics/angular:service": {
+					"skipTests": true
+				}
+			},
+			"root": "projects/bookstore-shell",
+			"sourceRoot": "projects/bookstore-shell/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/bookstore-shell",
+						"index": "projects/bookstore-shell/src/index.html",
+						"main": "projects/bookstore-shell/src/main.ts",
+						"polyfills": "projects/bookstore-shell/src/polyfills.ts",
+						"tsConfig": "projects/bookstore-shell/tsconfig.app.json",
+						"assets": [
+							"projects/bookstore-shell/src/favicon.ico",
+							"projects/bookstore-shell/src/assets"
+						],
+						"styles": [
+							"node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"projects/bookstore-shell/src/styles.css"
+						],
+						"scripts": [
+							"node_modules/jquery/dist/jquery.min.js",
+							"node_modules/bootstrap/dist/js/bootstrap.min.js"
+						],
+						"extraWebpackConfig": "projects/bookstore-shell/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/bookstore-shell/src/environments/environment.ts",
+									"with": "projects/bookstore-shell/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/bookstore-shell/webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "bookstore-shell:build:production",
+							"extraWebpackConfig": "projects/bookstore-shell/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "bookstore-shell:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 5000,
+						"publicHost": "http://localhost:5000",
+						"extraWebpackConfig": "projects/bookstore-shell/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "bookstore-shell:build",
+						"extraWebpackConfig": "projects/bookstore-shell/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/bookstore-shell/src/test.ts",
+						"polyfills": "projects/bookstore-shell/src/polyfills.ts",
+						"tsConfig": "projects/bookstore-shell/tsconfig.spec.json",
+						"karmaConfig": "projects/bookstore-shell/karma.conf.js",
+						"assets": [
+							"projects/bookstore-shell/src/favicon.ico",
+							"projects/bookstore-shell/src/assets"
+						],
+						"styles": [
+							"projects/bookstore-shell/src/styles.css"
+						],
+						"scripts": []
+					}
+				}
+			}
+    },
+    "auth-lib": {
+      "projectType": "library",
+      "root": "projects/auth-lib",
+      "sourceRoot": "projects/auth-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/auth-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/auth-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/auth-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/auth-lib/src/test.ts",
+            "tsConfig": "projects/auth-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/auth-lib/karma.conf.js"
+          }
+        }
+      }
+    }
+	}
+}
